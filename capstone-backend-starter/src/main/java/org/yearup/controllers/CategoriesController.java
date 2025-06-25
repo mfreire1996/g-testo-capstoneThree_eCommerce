@@ -17,7 +17,7 @@ import java.util.List;
 // add the annotation to make this controller the endpoint for the following url
 @RequestMapping("/categories")
     // http://localhost:8080/categories
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 // add annotation to allow cross site origin requests
 public class CategoriesController
 {
@@ -32,7 +32,7 @@ public class CategoriesController
         this.productDao = productDao;
     }
 
-    @GetMapping
+    @GetMapping("")
     // add the appropriate annotation for a get action
     public List<Category> getAllCategories()
     {
@@ -56,7 +56,7 @@ public class CategoriesController
     public List<Product> getProductsById(@PathVariable int categoryId)
     {
         // get a list of product by categoryId
-        return productDao.getByCategoryId(categoryId);
+        return productDao.listByCategoryId(categoryId);
     }
 
     @PostMapping("")
