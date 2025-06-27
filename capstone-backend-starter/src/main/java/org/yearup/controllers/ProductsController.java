@@ -30,8 +30,6 @@ public class ProductsController {
                                 @RequestParam(name = "color", required = false) String color
     ) {
         try {
-            System.out.println("Search called with maxPrice = " + maxPrice);
-
             return productDao.search(categoryId, minPrice, maxPrice, color);
         } catch (Exception ex) {
             throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, "Oops... our bad.");
